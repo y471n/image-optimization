@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import *
+from django.conf import settings
 
 def index(request):
     return HttpResponse('Hello')
@@ -8,7 +9,7 @@ def index(request):
 
 def store(request):
     products = Product.objects.all()
-    context = {'products': products}
+    context = {'products': products, 'MEDIA_CDN': settings.MEDIA_CDN}
     return render(request, 'store/store.html', context)
 
 
