@@ -1,12 +1,12 @@
 {% extends "store/main.html" %} {% load static %} {%block content %}
-<div class="row py-3">
+<div class="row p-3">
   {% for product in products %}
   <div class="col-lg-4">
     <div class="product-image-container">
       {%if product.image %}
       <img
         class="img-responsive product-image"
-        src="{{ MEDIA_URL }}{{ product.image.url}}"
+        src="{{ MEDIA_CDN }}{{ product.image.url}}"
       />
       {%else %}
       <img class="thumbnail" src="{%static 'images/placeholder.png' %}" />
